@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const initialFriends = [
   {
     id: 118836,
@@ -19,12 +21,23 @@ const initialFriends = [
   },
 ];
 
+function Button({children,onClick}){
+  return <button className="button" onClick={onClick}>{children}</button>
+
+ }
+
  export default function App(){
+  const[friends,setFriends]=useState([initialFriends])
+
+  const[showAddFriend,setShowAddFriend]= useState(false)
+  function handleShowAddFriend(){
+    setShowAddFriend((show)=>!show);
+   }
   return<div className="app">
     <div className="sidebar">
     <FriendList/>
-    <FormAddFriend/>
-    <Button>Add Friend</Button>
+   {showAddFriend&&  <FormAddFriend/>}
+    <Button onClick={handleShowAddFriend}>{showAddFriend?"close":"Add friend"}</Button>
     </div>
     <FormSplitBill/>
     
@@ -75,18 +88,33 @@ const initialFriends = [
 
  }
 
- function Button({children}){
-  return <button className="button">{children}</button>
+ 
 
- }
+ 
 
  function FormAddFriend(){
-  return <form className="form-add-friend"> 
-  <label>👫Friend name </label>
-  <input type="text"/>
+  const[name,setName]=useState("")
+  const[image,setImage]=useState("")
 
-  <label>📷Image url</label>
-  <input type="text"/> 
+  function handleSubmit(e){
+    e.preventDefault();
+    if(!name || !image) return
+    const newFriend={
+      name,
+      image,
+      balance:0,
+      id:crypto.randomUUID
+    };
+    setName("")
+    setImage("")
+
+  }
+  return <form className="form-add-friend" onSubmit={handleSubmit}> 
+  <label>👫Friend name </label>
+  <input type="text" value={name}onChange={(e)=>setName(e.target.values)}/>
+
+  <label>📷Image url </label>
+  <input type="text" value={image}onChange={(e)=>setImage(e.target.value)}/> 
   <Button>Add</Button>
   
 
