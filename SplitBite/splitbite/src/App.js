@@ -30,10 +30,12 @@ function Button({children,onClick}){
   const[friends,setFriends]=useState(initialFriends)
 
   const[showAddFriend,setShowAddFriend]= useState(false)
+   
   function handleShowAddFriend(){
     setShowAddFriend((show)=>!show);
    }
 
+   
    function handleAddFriend(friend){
     setFriends((friends)=>[...friends,friend])
    }
@@ -48,6 +50,7 @@ function Button({children,onClick}){
   </div>
  }
 
+ 
  function FriendList({friends}){
   return<ul>
     {friends.map((friend)=>(
@@ -117,7 +120,7 @@ function Button({children,onClick}){
   }
   return <form className="form-add-friend" onSubmit={handleSubmit}> 
   <label>👫Friend name </label>
-  <input type="text" value={name}onChange={(e)=>setName(e.target.values)}/>
+  <input type="text" value={name}onChange={(e)=>setName(e.target.value)}/>
 
   <label>📷Image url </label>
   <input type="text" value={image}onChange={(e)=>setImage(e.target.value)}/> 
