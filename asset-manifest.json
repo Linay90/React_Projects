@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/React_Projects/SplitBite/splitbite/static/css/main.f38a3276.css",
+    "main.js": "/React_Projects/SplitBite/splitbite/static/js/main.e6eae7cc.js",
+    "index.html": "/React_Projects/SplitBite/splitbite/index.html",
+    "main.f38a3276.css.map": "/React_Projects/SplitBite/splitbite/static/css/main.f38a3276.css.map",
+    "main.e6eae7cc.js.map": "/React_Projects/SplitBite/splitbite/static/js/main.e6eae7cc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f38a3276.css",
+    "static/js/main.e6eae7cc.js"
+  ]
+}
